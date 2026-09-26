@@ -1,0 +1,13 @@
+{
+  "name": "pushman-skills",
+  "owner": { "name": "pushmanhq", "url": "https://pushman.whitekiwi.link/" },
+  "metadata": { "description": "Official Pushman agent skill" },
+  "plugins": [
+    {
+      "name": "pushman",
+      "source": "./plugins/pushman",
+      "description": "Send intentional iPhone notifications and inspect Pushman safely.",
+      "version": "0.1.0"
+    }
+  ]
+}

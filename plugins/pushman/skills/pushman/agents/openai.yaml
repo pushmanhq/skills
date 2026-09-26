@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pushman"
+  short_description: "Intentional iPhone notifications and diagnostics"
+  default_prompt: "Use $pushman to check my usage without sending a notification."

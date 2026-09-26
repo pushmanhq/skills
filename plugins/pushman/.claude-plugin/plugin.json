@@ -1,0 +1,11 @@
+{
+  "name": "pushman",
+  "version": "0.1.0",
+  "description": "Send intentional iPhone notifications and inspect Pushman safely.",
+  "author": { "name": "pushmanhq", "url": "https://pushman.whitekiwi.link/" },
+  "homepage": "https://github.com/pushmanhq/skills",
+  "repository": "https://github.com/pushmanhq/skills",
+  "license": "MIT",
+  "keywords": ["pushman", "notifications", "iphone", "cli", "skills"],
+  "skills": "./skills/"
+}
