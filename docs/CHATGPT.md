@@ -8,7 +8,7 @@ installers, secrets or automatic notification sends.
 Build the complete deterministic ZIP from the repository root:
 
 ```sh
-python -m scripts.build_chatgpt --output /path/to/new/pushman-hosted-0.2.0.zip
+python -m scripts.build_chatgpt --output /path/to/new/pushman-hosted-0.2.1.zip
 ```
 
 The builder validates both distributions, refuses overwrite, and reads the ZIP
