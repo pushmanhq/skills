@@ -28,12 +28,12 @@ class PackageValidationTests(unittest.TestCase):
         validate(self.root)
 
     def test_plugin_version_mismatch(self):
-        self.mutate_json("plugins/pushman/.claude-plugin/plugin.json", lambda d: d.update(version="0.2.0"))
+        self.mutate_json("plugins/pushman/.claude-plugin/plugin.json", lambda d: d.update(version="9.0.0"))
         with self.assertRaisesRegex(ValueError, "Plugin version mismatch"):
             validate(self.root)
 
     def test_marketplace_version_mismatch(self):
-        self.mutate_json(".claude-plugin/marketplace.json", lambda d: d["plugins"][0].update(version="0.2.0"))
+        self.mutate_json(".claude-plugin/marketplace.json", lambda d: d["plugins"][0].update(version="9.0.0"))
         with self.assertRaisesRegex(ValueError, "Marketplace version mismatch"):
             validate(self.root)
 

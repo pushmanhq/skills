@@ -1,0 +1,47 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "pushman",
+  "version": "0.2.0",
+  "description": "Send intentional iPhone notifications and manage your Pushman sender with OAuth.",
+  "author": {
+    "name": "pushmanhq",
+    "url": "https://pushman.whitekiwi.link/"
+  },
+  "homepage": "https://pushman.whitekiwi.link/",
+  "repository": "https://github.com/pushmanhq/skills",
+  "license": "MIT",
+  "keywords": [
+    "pushman",
+    "notifications",
+    "iphone",
+    "mcp",
+    "oauth"
+  ],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/pushman/SKILL.md",
+      "interface": {
+        "displayName": "Pushman",
+        "shortDescription": "Send requested notifications to your iPhone.",
+        "longDescription": "Connect your Pushman account with Google or Apple. Send notifications when requested, inspect receiving devices, history, monthly usage and delivery, rename or disconnect this sender, and obtain privacy-safe diagnostics. No CLI installation is needed for hosted OAuth.",
+        "developerName": "pushmanhq",
+        "category": "Productivity",
+        "capabilities": [
+          "Notifications",
+          "Usage and history",
+          "Sender management"
+        ],
+        "websiteURL": "https://pushman.whitekiwi.link/",
+        "privacyPolicyURL": "https://app.pushman.whitekiwi.link/privacy/",
+        "brandColor": "#08686B",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png",
+        "defaultPrompt": [
+          "Show my Pushman usage without sending a notification.",
+          "Check my eligible Pushman receiving devices.",
+          "Help me connect my Pushman account."
+        ]
+      }
+    }
+  }
+}

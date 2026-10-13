@@ -1,7 +1,10 @@
 # Installation and maintenance
 
-The plugin requires an installed [Pushman CLI](https://github.com/pushmanhq/pushman-cli/blob/main/docs/INSTALL.md).
-CLI v0.1.1 is the verified baseline. Use a compatible host with plugin support;
+The local repo marketplaces require an installed
+[Pushman CLI](https://github.com/pushmanhq/pushman-cli/blob/main/docs/INSTALL.md).
+CLI v0.5.0 adds the complete local MCP tool set. The separate
+[hosted OAuth distribution](CHATGPT.md) connects without a CLI.
+Use a compatible host with plugin support;
 check its installed `plugin --help` if a command is unavailable.
 
 ## Plugin install
@@ -47,7 +50,7 @@ scope. Don't overwrite an existing skill with the same name without reviewing it
 CLI fallback works without MCP. If you want typed tools, authorize with
 `pushman login` or `pushman pair`, then explicitly configure your chosen client
 using the [MCP guide](https://github.com/pushmanhq/pushman-cli/blob/main/docs/MCP.md).
-This package does not bundle an MCP entry, so it won't start a duplicate of an
+The local repo package does not bundle an MCP entry, so it won't start a duplicate of an
 existing `pushman mcp` server. Never put tokens into agent configuration.
 
 ## Update or remove
