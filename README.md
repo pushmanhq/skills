@@ -25,8 +25,8 @@ your iPhone when you ask, inspect usage and history, or diagnose a delivery prob
 
 ### Hosted ChatGPT and Codex
 
-The separate hosted distribution includes OAuth MCP and the maintained skill.
-Choose Pushman in an available plugin listing, connect with Google or Apple,
+The ChatGPT account connection uses a registered Pushman app and the maintained
+skill. Choose that Pushman plugin in an available listing, connect with Google or Apple,
 and approve access. It does not require a local CLI. See
 [hosted installation and publication](docs/CHATGPT.md) for the complete ZIP,
 current connection requirements and release/update checks. A receiving iPhone
@@ -83,8 +83,9 @@ Ask your agent:
 The single [`pushman` skill](plugins/pushman/skills/pushman/SKILL.md) covers sending,
 inspection, login/pairing guidance, local MCP setup, and eligible CLI updates.
 It uses connected Pushman MCP tools when available and otherwise the installed CLI.
-The local marketplaces bundle instructions only. The hosted ZIP also declares
-the OAuth MCP connection. Neither distribution bundles a daemon, hook or installer.
+The local marketplaces bundle instructions only. The portable hosted ZIP declares
+OAuth MCP; a private connected ZIP instead references an existing registered
+ChatGPT app. None bundles a daemon, hook or installer.
 
 ## Safety by default
 

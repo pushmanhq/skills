@@ -6,8 +6,12 @@ or CLI updates. A request for one action doesn't authorize the others.
 ## Connect the hosted plugin
 
 The hosted endpoint is `https://app.pushman.whitekiwi.link/mcp`. Its plugin
-package declares OAuth with CIMD and discovery; DCR is also supported. Install
-the available Pushman plugin, choose Connect, sign in with Google or Apple, and
+package declares OAuth with CIMD and discovery; DCR is also supported. For the
+ChatGPT account-card experience, use the plugin that references the registered
+Pushman app. A ZIP that only bundles `mcp.json` appears as an MCP server in a
+local client; importing it does not register a ChatGPT app or create its connected
+account card. Changing the skill version does not change that integration type.
+Choose Connect on the registered Pushman app, sign in with Google or Apple, and
 review the requested access before allowing it. No local CLI or pasted token is
 needed. Receiving notifications still requires the signed-in iPhone app.
 
@@ -62,8 +66,10 @@ status; don't log out just to diagnose a failure.
 
 ## Connect a local MCP client
 
-The local Codex/Claude package remains instruction-only; the hosted ChatGPT ZIP
-bundles the remote OAuth configuration. Don't alter an existing MCP configuration
+The local Codex/Claude package remains instruction-only. The portable hosted ZIP
+bundles remote OAuth configuration for a supported client or the public With MCP
+submission flow; the registered-app ZIP references the existing ChatGPT app.
+Don't alter an existing MCP configuration
 merely because the skill was installed. When the user requests MCP setup, inspect
 the client's configuration and reuse an existing Pushman entry where possible.
 

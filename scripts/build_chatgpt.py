@@ -25,8 +25,8 @@ def package_files(root: Path = ROOT) -> dict[str, bytes]:
     return result
 
 
-def build(output: Path, root: Path = ROOT) -> dict:
-    files = package_files(root)
+def write_package(output: Path, files: dict[str, bytes]) -> dict:
+    """Write a deterministic complete package, preserving any existing output."""
     output.parent.mkdir(parents=True, exist_ok=True)
     # Refuse overwrite so an earlier uploaded release remains identifiable.
     with output.open("xb") as stream, zipfile.ZipFile(stream, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
@@ -40,7 +40,12 @@ def build(output: Path, root: Path = ROOT) -> dict:
         if archive.testzip() is not None or {name: archive.read(name) for name in archive.namelist()} != files:
             raise ValueError("Hosted ZIP read-back differs")
     return {"path": str(output.resolve()), "sha256": hashlib.sha256(output.read_bytes()).hexdigest(),
-            "files": len(files), "version": json.loads(files["plugin.json"])["version"]}
+            "files": len(files)}
+
+
+def build(output: Path, root: Path = ROOT) -> dict:
+    files = package_files(root)
+    return {**write_package(output, files), "version": json.loads(files["plugin.json"])["version"]}
 
 
 if __name__ == "__main__":
