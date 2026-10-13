@@ -31,9 +31,42 @@ jobs:
         run: .venv/bin/python scripts/validate.py
       - name: Test validator
         run: .venv/bin/python -m unittest discover -s tests -v
+      - name: Build and read back hosted plugin
+        run: |
+          version=$(.venv/bin/python -c 'import json; print(json.load(open("distributions/chatgpt/plugin.json"))["version"])')
+          .venv/bin/python -m scripts.build_chatgpt --output "dist/pushman-hosted-${version}.zip"
+          (cd dist && sha256sum -- pushman-hosted-*.zip > checksums.txt)
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: pushman-hosted-plugin
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 7
       - name: Check release tag
         if: startsWith(github.ref, 'refs/tags/')
         env:
           RELEASE_TAG: ${{ github.ref_name }}
         run: |
           .venv/bin/python -c 'import json, os; v = json.load(open("plugins/pushman/.codex-plugin/plugin.json"))["version"]; assert os.environ["RELEASE_TAG"] == "v" + v, "Tag must match plugin version"'
+
+  release:
+    name: Publish qualified plugin ZIP
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: pushman-hosted-plugin
+          path: dist
+      - name: Publish immutable release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          (cd dist && sha256sum -c checksums.txt)
+          gh release create "$RELEASE_TAG" dist/*.zip dist/checksums.txt --verify-tag --title "$RELEASE_TAG" --notes 'Hosted OAuth MCP package and complete local/hosted Pushman skills. OpenAI portal upload, account acceptance and public-directory review are separate gates; see docs/CHATGPT.md.'
