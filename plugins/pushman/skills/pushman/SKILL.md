@@ -11,11 +11,17 @@ intent, target scope, and account boundaries. This skill grants no credentials.
 
 ## Choose the surface
 
+- Identify the intended connection first. If the hosted plugin's tools are
+  unavailable or unauthorized, guide the client's Connect/OAuth flow from
+  [references/setup.md](references/setup.md). Hosted OAuth needs no CLI.
+  Keep its account/sender context; do not switch to a computer's different
+  credential or propose CLI installation merely to repair hosted OAuth.
 - Prefer connected `pushman_*` MCP tools for supported operations. Otherwise use
-  `pushman` from `PATH`; check `pushman version` and installed command help before
+  `pushman` from `PATH` for an intended local CLI workflow. Check `pushman version`
+  and installed command help before
   composing an unfamiliar command. Use `pushman_get_capabilities` when available
   to distinguish hosted OAuth from local stdio and discover supported workflows.
-- If absent, point to the [official installation guide](https://github.com/pushmanhq/pushman-cli/blob/main/docs/INSTALL.md).
+- If a needed local CLI is absent, point to the [official installation guide](https://github.com/pushmanhq/pushman-cli/blob/main/docs/INSTALL.md).
   Install only when requested; do not substitute a development binary or change API origins.
 - The hosted plugin connects through OAuth without installing a CLI or pasting a
   token. Local stdio reuses the computer's CLI credential. Read
