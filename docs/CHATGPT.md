@@ -15,8 +15,15 @@ automatic notification sends.
 ## Registered app and personal plugin
 
 In ChatGPT Plugins, choose **Add custom MCP server** and register
-`https://app.pushman.whitekiwi.link/mcp` with OAuth and discovery/dynamic client
-registration. Reuse an existing Pushman registration when present. Review the
+`https://app.pushman.io/mcp` with OAuth and discovery/dynamic client
+registration. Reuse an existing Pushman registration that targets this endpoint.
+When moving from the previous origin, check both the server URL and OAuth
+resource. If the client supports editing them, update both and reconnect.
+If it does not, treat a replacement registration as a separate account migration;
+preserve the original until the replacement is verified and its removal is requested.
+Existing grants remain bound to their original resource; never copy credentials
+or change a token claim. A skill-package update alone does not change a registered
+app's server URL. Review the
 risk notice and choose **Create as a plugin**. The technical page ID starts with
 `plugin_asdk_app_`; the app ID in `.app.json` starts with `asdk_app_`.
 
@@ -54,7 +61,7 @@ the user requests its removal.
 Build the complete deterministic ZIP from the repository root:
 
 ```sh
-python -m scripts.build_chatgpt --output /path/to/new/pushman-hosted-0.2.2.zip
+python -m scripts.build_chatgpt --output /path/to/new/pushman-hosted-0.2.3.zip
 ```
 
 The builder validates both distributions, refuses overwrite, and reads the ZIP

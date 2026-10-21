@@ -90,7 +90,7 @@ def validate(root: Path = ROOT) -> None:
     extension = portable.get("extensions", {}).get("com.openai", {})
     require(not ({"apps", "hooks"} & extension.keys()), "Hosted plugin cannot contain app mappings or hooks")
     require(extension.get("onboardingSkill") == "./skills/pushman/SKILL.md", "Wrong hosted onboarding skill")
-    require(extension.get("interface", {}).get("privacyPolicyURL") == "https://app.pushman.whitekiwi.link/privacy/",
+    require(extension.get("interface", {}).get("privacyPolicyURL") == "https://app.pushman.io/privacy/",
             "Wrong hosted privacy URL")
     require(resolve_inside(hosted, "./assets/icon.png").is_file(), "Missing hosted icon")
     connection = read_json(hosted / "mcp.json")
@@ -99,7 +99,7 @@ def validate(root: Path = ROOT) -> None:
     servers = connection.get("mcpServers", {})
     require(list(servers) == ["pushman"], "Expected exactly one hosted server")
     server = servers["pushman"]
-    require(server.get("type") == "streamable-http" and server.get("url") == "https://app.pushman.whitekiwi.link/mcp",
+    require(server.get("type") == "streamable-http" and server.get("url") == "https://app.pushman.io/mcp",
             "Wrong hosted MCP transport or endpoint")
     require(not server.get("headers"), "Hosted package cannot embed authorization headers")
     auth = server.get("extensions", {}).get("com.openai", {}).get("auth", {})
