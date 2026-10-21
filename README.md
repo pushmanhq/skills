@@ -103,7 +103,7 @@ service pricing or account entitlement.
 ## Contribute and get help
 
 Workflow bugs belong in [this repository's issues](https://github.com/pushmanhq/skills/issues).
-For app or service help, use [Pushman support](https://app.pushman.whitekiwi.link/support/).
+For app or service help, use [Pushman support](https://app.pushman.io/support/).
 See [Contributing](CONTRIBUTING.md), [testing scenarios](docs/TESTING.md), and the
 [security policy](SECURITY.md). Never attach unredacted notification history or credentials.
 

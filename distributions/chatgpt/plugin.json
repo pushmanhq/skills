@@ -1,13 +1,13 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "pushman",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Send intentional iPhone notifications and manage your Pushman sender with OAuth.",
   "author": {
     "name": "pushmanhq",
-    "url": "https://pushman.whitekiwi.link/"
+    "url": "https://pushman.io/"
   },
-  "homepage": "https://pushman.whitekiwi.link/",
+  "homepage": "https://pushman.io/",
   "repository": "https://github.com/pushmanhq/skills",
   "license": "MIT",
   "keywords": [
@@ -31,8 +31,8 @@
           "Usage and history",
           "Sender management"
         ],
-        "websiteURL": "https://pushman.whitekiwi.link/",
-        "privacyPolicyURL": "https://app.pushman.whitekiwi.link/privacy/",
+        "websiteURL": "https://pushman.io/",
+        "privacyPolicyURL": "https://app.pushman.io/privacy/",
         "brandColor": "#08686B",
         "composerIcon": "./assets/icon.png",
         "logo": "./assets/icon.png",

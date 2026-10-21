@@ -1,10 +1,10 @@
 {
   "name": "pushman",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Send intentional iPhone notifications and inspect Pushman safely.",
   "author": {
     "name": "pushmanhq",
-    "url": "https://pushman.whitekiwi.link/"
+    "url": "https://pushman.io/"
   },
   "homepage": "https://github.com/pushmanhq/skills",
   "repository": "https://github.com/pushmanhq/skills",
@@ -28,7 +28,7 @@
       "Usage and history",
       "Delivery diagnostics"
     ],
-    "websiteURL": "https://pushman.whitekiwi.link/",
+    "websiteURL": "https://pushman.io/",
     "defaultPrompt": [
       "Show my Pushman usage without sending a notification.",
       "Check my eligible Pushman receiving devices.",

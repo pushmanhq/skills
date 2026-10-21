@@ -5,7 +5,7 @@ or CLI updates. A request for one action doesn't authorize the others.
 
 ## Connect the hosted plugin
 
-The hosted endpoint is `https://app.pushman.whitekiwi.link/mcp`. Its plugin
+The hosted endpoint is `https://app.pushman.io/mcp`. Its plugin
 package declares OAuth with CIMD and discovery; DCR is also supported. For the
 ChatGPT account-card experience, use the plugin that references the registered
 Pushman app. A ZIP that only bundles `mcp.json` appears as an MCP server in a
@@ -15,8 +15,12 @@ Choose Connect on the registered Pushman app, sign in with Google or Apple, and
 review the requested access before allowing it. No local CLI or pasted token is
 needed. Receiving notifications still requires the signed-in iPhone app.
 
-Use the client's existing Pushman connection. Do not add a duplicate server,
-copy tokens, or substitute a tunnel/local endpoint. Installation and OAuth
+Use the client's existing Pushman connection when it targets this endpoint.
+After a production-origin migration, check its server/resource URL before reconnecting.
+Update both when the client supports it. Otherwise, handle replacement registration
+as an account migration and preserve the original until verification and requested cleanup.
+Do not copy credentials or rewrite an authorization for another resource. Do not add
+a duplicate just to update skills, copy tokens, or substitute a tunnel/local endpoint. Installation and OAuth
 consent do not authorize a notification. Verify actual initialization, discovered
 tools and a requested status/usage read before claiming it works.
 
